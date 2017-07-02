@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import genetic
 import datetime
 import unittest
@@ -11,15 +13,14 @@ def display(candidate, startTime):
     timeDiff = datetime.datetime.now() - startTime
     if isinstance(candidate, genetic.Chromosome):
         # print("{}\t{}\t{}\t{}".format(''.join(candidate.Genes), candidate.Fitness, timeDiff, candidate.ChildType))
-        print("{}...{}\t{:3.2f}\t{}\t{}".format(
-            ''.join(map(str, candidate.Genes[:15])),
-            ''.join(map(str, candidate.Genes[-15:]),
-            candidate.ChildType)
+        # import pdb; pdb.set_trace()
+        print("{}\t{}\t{}".format( ''.join(candidate.Genes), candidate.ChildType, timeDiff))
     else:
         raise ValueError("Wrong object to display")
 
+
 class GuessPasswordTests(unittest.TestCase):
-    geneset = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!."
+    geneset = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!.123!@#"
 
     # def test_Hello_World(self):
     #     target = "Hello World!"
@@ -48,17 +49,16 @@ class GuessPasswordTests(unittest.TestCase):
         self.assertEqual(''.join(best.Genes), target)
 
 
-    # def teset_Benchmark(self):
-    #     genetic.Benchmark.run(self.test_Random)
+    def test_Benchmark(self):
+        genetic.Benchmark.run(self.three_letters)
 
     # def test_Salut_Vlad(self):
     #     target = "Salut Vlad!"
     #     self.guess_password(target)
 
-    def test_three_letters(self):
-        target = "as"
-        # self.guess_password(target)
-        # self.assertEqual(''.join(best.Genes), target)
+    def three_letters(self):
+        target = "asd#@!"
+        self.guess_password(target)
 
 
 if __name__ == '__main__':
