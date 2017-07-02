@@ -1,1 +1,1 @@
-- sample repository https://github.com/handcraftsman/GeneticAlgorithmsWithPython/
+- development followng Genetic Algorithms in Python by Clinton Sheppard
